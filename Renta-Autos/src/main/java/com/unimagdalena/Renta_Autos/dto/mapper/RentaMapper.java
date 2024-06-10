@@ -1,6 +1,7 @@
 package com.unimagdalena.Renta_Autos.dto.mapper;
 
 import com.unimagdalena.Renta_Autos.dto.RentaDto;
+import com.unimagdalena.Renta_Autos.dto.RentaToSaveDto;
 import com.unimagdalena.Renta_Autos.entities.Renta;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -21,7 +22,8 @@ public interface RentaMapper {
 
     @Mapping(source = "fechaInicio",target = "fechaInicio",qualifiedByName = "stringToDate")
     @Mapping(source = "fechaFinal",target = "fechaFinal",qualifiedByName = "stringToDate")
-    Renta toSaveDtoToEntity();
+    
+    Renta toSaveDtoToEntity(RentaToSaveDto renta);
 
     @Named("dateToString")
     static String dateToString(LocalDate fechaDate){
